@@ -833,6 +833,83 @@
 
     .panel{position:static; width:auto; margin:20px}
     }
+    .upcoming-section{
+  margin: 10px 8px 18px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+  box-shadow: 0 12px 35px rgba(0,0,0,.22);
+}
+
+.upcoming-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.upcoming-header span{
+  font-weight:900;
+  letter-spacing:.14em;
+  color:#ffd77a;
+  font-size:14px;
+}
+
+.upcoming-header small{
+  color:rgba(255,255,255,.72);
+  font-size:12px;
+}
+
+.upcoming-grid{
+  display:grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap:10px;
+}
+
+.fixture-card{
+  padding:12px;
+  border-radius:16px;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.fixture-date{
+  font-size:11px;
+  color:#ffd77a;
+  font-weight:800;
+  letter-spacing:.06em;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+
+.fixture-teams{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  font-size:13px;
+  font-weight:900;
+}
+
+.fixture-teams span{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.fixture-teams strong{
+  font-size:10px;
+  color:rgba(255,255,255,.62);
+}
+
+.fixture-group{
+  margin-top:8px;
+  font-size:11px;
+  color:rgba(255,255,255,.68);
+  font-weight:700;
+}
   </style>
 </head>
 <body>
@@ -847,7 +924,13 @@
         <div>League ID <span id="leagueText">1</span> · Season <span id="seasonText">2026</span> · Auto-refresh every 60 seconds</div>
       </div>
     </header>
-
+<section class="upcoming-section">
+  <div class="upcoming-header">
+    <span>NEXT FIXTURES</span>
+    <small>Upcoming live matches at Ai KISU Club</small>
+  </div>
+  <div id="upcomingFixtures" class="upcoming-grid"></div>
+</section>
     <section class="groups" id="groups"></section>
 
     <section class="knockout-zone full-bracket">
@@ -1142,6 +1225,15 @@ const teamAcronyms = {
   "Ghana":"GHA",
   "Panama":"PAN"
 };
+  const upcomingFixtures = [
+  {date:"Today", time:"23:00 MRU", home:"Qatar", away:"Switzerland", group:"Group B"},
+  {date:"Tomorrow", time:"02:00 MRU", home:"Brazil", away:"Morocco", group:"Group C"},
+  {date:"Tomorrow", time:"05:00 MRU", home:"Haiti", away:"Scotland", group:"Group C"},
+  {date:"14 June", time:"08:00 MRU", home:"Australia", away:"Turkey", group:"Group D"},
+  {date:"14 June", time:"21:00 MRU", home:"Germany", away:"Curacao", group:"Group E"}
+]; 
+
+  
 const demo = {
   groups: [
     {name:"Group A", teams:[
@@ -1403,9 +1495,25 @@ function slotHTML(m){
     <div class="meta">Knockout Stage · Tap for Details</div>
   </div>`;
 }
+function renderUpcomingFixtures(){
+  const box = document.getElementById("upcomingFixtures");
+  if(!box) return;
 
+  box.innerHTML = upcomingFixtures.map(match => `
+    <div class="fixture-card">
+      <div class="fixture-date">${match.date} · ${match.time}</div>
+      <div class="fixture-teams">
+        <span>${flagImg(match.home)} ${acronym(match.home)}</span>
+        <strong>VS</strong>
+        <span>${flagImg(match.away)} ${acronym(match.away)}</span>
+      </div>
+      <div class="fixture-group">${match.group}</div>
+    </div>
+  `).join("");
+}
 function render(data, live=false){
   currentData = data;
+  renderUpcomingFixtures();
   document.getElementById("mode").textContent = live ? "Live API Mode" : "Demo Mode";
   document.getElementById("leagueText").textContent = document.getElementById("leagueId").value || "1";
   document.getElementById("seasonText").textContent = document.getElementById("season").value || "2026";
