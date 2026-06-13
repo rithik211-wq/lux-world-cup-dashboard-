@@ -958,29 +958,189 @@
 
 <script>
 const countryCodes = {
-  "Argentina":"ar","Australia":"au","Belgium":"be","Brazil":"br","Cameroon":"cm","Canada":"ca","Costa Rica":"cr",
-  "Croatia":"hr","Denmark":"dk","Ecuador":"ec","England":"gb-eng","France":"fr","Germany":"de","Ghana":"gh",
-  "Iran":"ir","Japan":"jp","Mexico":"mx","Morocco":"ma","Netherlands":"nl","Poland":"pl","Portugal":"pt",
-  "Qatar":"qa","Saudi Arabia":"sa","Senegal":"sn","Serbia":"rs","South Korea":"kr","Spain":"es","Switzerland":"ch",
-  "Tunisia":"tn","United States":"us","Uruguay":"uy","Wales":"gb-wls","USA":"us","Korea Republic":"kr","IR Iran":"ir"
+ "Mexico":"mx",
+  "South Africa":"za",
+  "South Korea":"kr",
+  "Czechia":"cz",
+
+  "Canada":"ca",
+  "Bosnia and Herzegovina":"ba",
+  "Qatar":"qa",
+  "Switzerland":"ch",
+
+  "Brazil":"br",
+  "Morocco":"ma",
+  "Haiti":"ht",
+  "Scotland":"gb-sct",
+
+  "United States":"us",
+  "Australia":"au",
+  "Turkey":"tr",
+  "Paraguay":"py",
+
+  "Germany":"de",
+  "Curacao":"cw",
+  "Ivory Coast":"ci",
+  "Ecuador":"ec",
+
+  "Netherlands":"nl",
+  "Japan":"jp",
+  "Sweden":"se",
+  "Tunisia":"tn",
+
+  "Belgium":"be",
+  "Egypt":"eg",
+  "Iran":"ir",
+  "New Zealand":"nz",
+
+  "Spain":"es",
+  "Cape Verde":"cv",
+  "Saudi Arabia":"sa",
+  "Uruguay":"uy",
+
+  "France":"fr",
+  "Senegal":"sn",
+  "Iraq":"iq",
+  "Norway":"no",
+
+  "Argentina":"ar",
+  "Algeria":"dz",
+  "Austria":"at",
+  "Jordan":"jo",
+
+  "Portugal":"pt",
+  "DR Congo":"cd",
+  "Uzbekistan":"uz",
+  "Colombia":"co",
+
+  "England":"gb-eng",
+  "Croatia":"hr",
+  "Ghana":"gh",
+  "Panama":"pa"
 };
 
 const teamToCountry = {
-  "Netherlands":"Netherlands","Senegal":"Senegal","Ecuador":"Ecuador","Qatar":"Qatar","England":"England","United States":"United States",
-  "Iran":"Iran","Wales":"Wales","Argentina":"Argentina","Poland":"Poland","Mexico":"Mexico","Saudi Arabia":"Saudi Arabia",
-  "France":"France","Australia":"Australia","Tunisia":"Tunisia","Denmark":"Denmark","Japan":"Japan","Spain":"Spain","Germany":"Germany",
-  "Costa Rica":"Costa Rica","Morocco":"Morocco","Croatia":"Croatia","Belgium":"Belgium","Canada":"Canada","Brazil":"Brazil",
-  "Switzerland":"Switzerland","Cameroon":"Cameroon","Serbia":"Serbia","Portugal":"Portugal","South Korea":"South Korea",
-  "Uruguay":"Uruguay","Ghana":"Ghana","USA":"United States","Korea Republic":"South Korea","IR Iran":"Iran"
+  "Mexico":"Mexico",
+  "South Africa":"South Africa",
+  "South Korea":"South Korea",
+  "Czechia":"Czechia",
+
+  "Canada":"Canada",
+  "Bosnia and Herzegovina":"Bosnia and Herzegovina",
+  "Qatar":"Qatar",
+  "Switzerland":"Switzerland",
+
+  "Brazil":"Brazil",
+  "Morocco":"Morocco",
+  "Haiti":"Haiti",
+  "Scotland":"Scotland",
+
+  "United States":"United States",
+  "Australia":"Australia",
+  "Turkey":"Turkey",
+  "Paraguay":"Paraguay",
+
+  "Germany":"Germany",
+  "Curacao":"Curacao",
+  "Ivory Coast":"Ivory Coast",
+  "Ecuador":"Ecuador",
+
+  "Netherlands":"Netherlands",
+  "Japan":"Japan",
+  "Sweden":"Sweden",
+  "Tunisia":"Tunisia",
+
+  "Belgium":"Belgium",
+  "Egypt":"Egypt",
+  "Iran":"Iran",
+  "New Zealand":"New Zealand",
+
+  "Spain":"Spain",
+  "Cape Verde":"Cape Verde",
+  "Saudi Arabia":"Saudi Arabia",
+  "Uruguay":"Uruguay",
+
+  "France":"France",
+  "Senegal":"Senegal",
+  "Iraq":"Iraq",
+  "Norway":"Norway",
+
+  "Argentina":"Argentina",
+  "Algeria":"Algeria",
+  "Austria":"Austria",
+  "Jordan":"Jordan",
+
+  "Portugal":"Portugal",
+  "DR Congo":"DR Congo",
+  "Uzbekistan":"Uzbekistan",
+  "Colombia":"Colombia",
+
+  "England":"England",
+  "Croatia":"Croatia",
+  "Ghana":"Ghana",
+  "Panama":"Panama"
 };
 
 const teamAcronyms = {
-  "Netherlands":"NED","Senegal":"SEN","Ecuador":"ECU","Qatar":"QAT","England":"ENG","United States":"USA",
-  "Iran":"IRN","Wales":"WAL","Argentina":"ARG","Poland":"POL","Mexico":"MEX","Saudi Arabia":"KSA",
-  "France":"FRA","Australia":"AUS","Tunisia":"TUN","Denmark":"DEN","Japan":"JPN","Spain":"ESP","Germany":"GER",
-  "Costa Rica":"CRC","Morocco":"MAR","Croatia":"CRO","Belgium":"BEL","Canada":"CAN","Brazil":"BRA",
-  "Switzerland":"SUI","Cameroon":"CMR","Serbia":"SRB","Portugal":"POR","South Korea":"KOR","Uruguay":"URU","Ghana":"GHA",
-  "Korea Republic":"KOR","IR Iran":"IRN"
+  "Mexico":"MEX",
+  "South Africa":"RSA",
+  "South Korea":"KOR",
+  "Czechia":"CZE",
+
+  "Canada":"CAN",
+  "Bosnia and Herzegovina":"BIH",
+  "Qatar":"QAT",
+  "Switzerland":"SUI",
+
+  "Brazil":"BRA",
+  "Morocco":"MAR",
+  "Haiti":"HAI",
+  "Scotland":"SCO",
+
+  "United States":"USA",
+  "Australia":"AUS",
+  "Turkey":"TUR",
+  "Paraguay":"PAR",
+
+  "Germany":"GER",
+  "Curacao":"CUW",
+  "Ivory Coast":"CIV",
+  "Ecuador":"ECU",
+
+  "Netherlands":"NED",
+  "Japan":"JPN",
+  "Sweden":"SWE",
+  "Tunisia":"TUN",
+
+  "Belgium":"BEL",
+  "Egypt":"EGY",
+  "Iran":"IRN",
+  "New Zealand":"NZL",
+
+  "Spain":"ESP",
+  "Cape Verde":"CPV",
+  "Saudi Arabia":"KSA",
+  "Uruguay":"URU",
+
+  "France":"FRA",
+  "Senegal":"SEN",
+  "Iraq":"IRQ",
+  "Norway":"NOR",
+
+  "Argentina":"ARG",
+  "Algeria":"ALG",
+  "Austria":"AUT",
+  "Jordan":"JOR",
+
+  "Portugal":"POR",
+  "DR Congo":"COD",
+  "Uzbekistan":"UZB",
+  "Colombia":"COL",
+
+  "England":"ENG",
+  "Croatia":"CRO",
+  "Ghana":"GHA",
+  "Panama":"PAN"
 };
 const demo = {
   groups: [
