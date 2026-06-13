@@ -844,7 +844,7 @@
       </div>
       <div class="status">
         <div class="live-pill"><span class="dot"></span><span id="mode">Demo Mode</span></div>
-        <div>League ID <span id="leagueText">1</span> · Season <span id="seasonText">2022</span> · Auto-refresh every 60 seconds</div>
+        <div>League ID <span id="leagueText">1</span> · Season <span id="seasonText">2026</span> · Auto-refresh every 60 seconds</div>
       </div>
     </header>
 
@@ -944,7 +944,7 @@
     <label>League ID</label>
     <input id="leagueId" value="1" />
     <label>Season</label>
-    <input id="season" value="2022" />
+    <input id="season" value="2026" />
     <div class="buttons">
       <button onclick="loadLive()">Load Live Data</button>
       <button class="secondary" onclick="loadDemo()">Use Demo</button>
@@ -982,85 +982,213 @@ const teamAcronyms = {
   "Switzerland":"SUI","Cameroon":"CMR","Serbia":"SRB","Portugal":"POR","South Korea":"KOR","Uruguay":"URU","Ghana":"GHA",
   "Korea Republic":"KOR","IR Iran":"IRN"
 };
-
 const demo = {
   groups: [
     {name:"Group A", teams:[
-      {name:"Netherlands", w:2,d:1,l:0, gd:4, pts:7}, {name:"Senegal", w:2,d:0,l:1, gd:1, pts:6},
-      {name:"Ecuador", w:1,d:1,l:1, gd:1, pts:4}, {name:"Qatar", w:0,d:0,l:3, gd:-6, pts:0}
+      {name:"Mexico", w:1,d:0,l:0, gd:2, pts:3},
+      {name:"South Korea", w:1,d:0,l:0, gd:1, pts:3},
+      {name:"Czechia", w:0,d:0,l:1, gd:-1, pts:0},
+      {name:"South Africa", w:0,d:0,l:1, gd:-2, pts:0}
     ]},
     {name:"Group B", teams:[
-      {name:"England", w:2,d:1,l:0, gd:7, pts:7}, {name:"United States", w:1,d:2,l:0, gd:1, pts:5},
-      {name:"Iran", w:1,d:0,l:2, gd:-3, pts:3}, {name:"Wales", w:0,d:1,l:2, gd:-5, pts:1}
+      {name:"Canada", w:0,d:1,l:0, gd:0, pts:1},
+      {name:"Bosnia and Herzegovina", w:0,d:1,l:0, gd:0, pts:1},
+      {name:"Qatar", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Switzerland", w:0,d:0,l:0, gd:0, pts:0}
     ]},
     {name:"Group C", teams:[
-      {name:"Argentina", w:2,d:0,l:1, gd:3, pts:6}, {name:"Poland", w:1,d:1,l:1, gd:0, pts:4},
-      {name:"Mexico", w:1,d:1,l:1, gd:-1, pts:4}, {name:"Saudi Arabia", w:1,d:0,l:2, gd:-2, pts:3}
+      {name:"Brazil", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Morocco", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Haiti", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Scotland", w:0,d:0,l:0, gd:0, pts:0}
     ]},
     {name:"Group D", teams:[
-      {name:"France", w:2,d:0,l:1, gd:3, pts:6}, {name:"Australia", w:2,d:0,l:1, gd:-1, pts:6},
-      {name:"Tunisia", w:1,d:1,l:1, gd:0, pts:4}, {name:"Denmark", w:0,d:1,l:2, gd:-2, pts:1}
+      {name:"United States", w:1,d:0,l:0, gd:3, pts:3},
+      {name:"Australia", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Turkey", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Paraguay", w:0,d:0,l:1, gd:-3, pts:0}
     ]},
     {name:"Group E", teams:[
-      {name:"Japan", w:2,d:0,l:1, gd:1, pts:6}, {name:"Spain", w:1,d:1,l:1, gd:6, pts:4},
-      {name:"Germany", w:1,d:1,l:1, gd:1, pts:4}, {name:"Costa Rica", w:1,d:0,l:2, gd:-8, pts:3}
+      {name:"Germany", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Curacao", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Ivory Coast", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Ecuador", w:0,d:0,l:0, gd:0, pts:0}
     ]},
     {name:"Group F", teams:[
-      {name:"Morocco", w:2,d:1,l:0, gd:3, pts:7}, {name:"Croatia", w:1,d:2,l:0, gd:3, pts:5},
-      {name:"Belgium", w:1,d:1,l:1, gd:-1, pts:4}, {name:"Canada", w:0,d:0,l:3, gd:-5, pts:0}
+      {name:"Netherlands", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Japan", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Sweden", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Tunisia", w:0,d:0,l:0, gd:0, pts:0}
     ]},
     {name:"Group G", teams:[
-      {name:"Brazil", w:2,d:0,l:1, gd:2, pts:6}, {name:"Switzerland", w:2,d:0,l:1, gd:1, pts:6},
-      {name:"Cameroon", w:1,d:1,l:1, gd:0, pts:4}, {name:"Serbia", w:0,d:1,l:2, gd:-3, pts:1}
+      {name:"Belgium", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Egypt", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Iran", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"New Zealand", w:0,d:0,l:0, gd:0, pts:0}
     ]},
     {name:"Group H", teams:[
-      {name:"Portugal", w:2,d:0,l:1, gd:2, pts:6}, {name:"South Korea", w:1,d:1,l:1, gd:0, pts:4},
-      {name:"Uruguay", w:1,d:1,l:1, gd:0, pts:4}, {name:"Ghana", w:1,d:0,l:2, gd:-2, pts:3}
+      {name:"Spain", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Cape Verde", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Saudi Arabia", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Uruguay", w:0,d:0,l:0, gd:0, pts:0}
+    ]},
+    {name:"Group I", teams:[
+      {name:"France", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Senegal", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Iraq", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Norway", w:0,d:0,l:0, gd:0, pts:0}
+    ]},
+    {name:"Group J", teams:[
+      {name:"Argentina", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Algeria", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Austria", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Jordan", w:0,d:0,l:0, gd:0, pts:0}
+    ]},
+    {name:"Group K", teams:[
+      {name:"Portugal", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"DR Congo", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Uzbekistan", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Colombia", w:0,d:0,l:0, gd:0, pts:0}
+    ]},
+    {name:"Group L", teams:[
+      {name:"England", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Croatia", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Ghana", w:0,d:0,l:0, gd:0, pts:0},
+      {name:"Panama", w:0,d:0,l:0, gd:0, pts:0}
     ]}
   ],
-  groupMatches: [
-    [{home:"Qatar",score:"0-2",away:"Ecuador"},{home:"Senegal",score:"0-2",away:"Netherlands"},{home:"Qatar",score:"1-3",away:"Senegal"},{home:"Netherlands",score:"1-1",away:"Ecuador"},{home:"Ecuador",score:"1-2",away:"Senegal"},{home:"Netherlands",score:"2-0",away:"Qatar"}],
-    [{home:"England",score:"6-2",away:"Iran"},{home:"United States",score:"1-1",away:"Wales"},{home:"Wales",score:"0-2",away:"Iran"},{home:"England",score:"0-0",away:"United States"},{home:"Wales",score:"0-3",away:"England"},{home:"Iran",score:"0-1",away:"United States"}],
-    [{home:"Argentina",score:"1-2",away:"Saudi Arabia", goals:[{minute:"10'", player:"Messi", team:"Argentina", detail:"Penalty"},{minute:"48'", player:"Al-Shehri", team:"Saudi Arabia", detail:"Goal"},{minute:"53'", player:"Al-Dawsari", team:"Saudi Arabia", detail:"Goal"}]},{home:"Mexico",score:"0-0",away:"Poland"},{home:"Poland",score:"2-0",away:"Saudi Arabia"},{home:"Argentina",score:"2-0",away:"Mexico", goals:[{minute:"64'", player:"Messi", team:"Argentina", detail:"Goal"},{minute:"87'", player:"Fernández", team:"Argentina", detail:"Goal"}]},{home:"Poland",score:"0-2",away:"Argentina", goals:[{minute:"46'", player:"Mac Allister", team:"Argentina", detail:"Goal"},{minute:"67'", player:"Álvarez", team:"Argentina", detail:"Goal"}]},{home:"Saudi Arabia",score:"1-2",away:"Mexico"}],
-    [{home:"Denmark",score:"0-0",away:"Tunisia"},{home:"France",score:"4-1",away:"Australia", goals:[{minute:"9'", player:"Goodwin", team:"Australia", detail:"Goal"},{minute:"27'", player:"Rabiot", team:"France", detail:"Goal"},{minute:"32'", player:"Giroud", team:"France", detail:"Goal"},{minute:"68'", player:"Mbappé", team:"France", detail:"Goal"},{minute:"71'", player:"Giroud", team:"France", detail:"Goal"}]},{home:"Tunisia",score:"0-1",away:"Australia"},{home:"France",score:"2-1",away:"Denmark"},{home:"Australia",score:"1-0",away:"Denmark"},{home:"Tunisia",score:"1-0",away:"France"}],
-    [{home:"Germany",score:"1-2",away:"Japan"},{home:"Spain",score:"7-0",away:"Costa Rica"},{home:"Japan",score:"0-1",away:"Costa Rica"},{home:"Spain",score:"1-1",away:"Germany"},{home:"Japan",score:"2-1",away:"Spain"},{home:"Costa Rica",score:"2-4",away:"Germany"}],
-    [{home:"Morocco",score:"0-0",away:"Croatia"},{home:"Belgium",score:"1-0",away:"Canada"},{home:"Belgium",score:"0-2",away:"Morocco"},{home:"Croatia",score:"4-1",away:"Canada"},{home:"Croatia",score:"0-0",away:"Belgium"},{home:"Canada",score:"1-2",away:"Morocco"}],
-    [{home:"Switzerland",score:"1-0",away:"Cameroon"},{home:"Brazil",score:"2-0",away:"Serbia"},{home:"Cameroon",score:"3-3",away:"Serbia"},{home:"Brazil",score:"1-0",away:"Switzerland"},{home:"Serbia",score:"2-3",away:"Switzerland"},{home:"Cameroon",score:"1-0",away:"Brazil"}],
-    [{home:"Uruguay",score:"0-0",away:"South Korea"},{home:"Portugal",score:"3-2",away:"Ghana", goals:[{minute:"65'", player:"Ronaldo", team:"Portugal", detail:"Penalty"},{minute:"73'", player:"A. Ayew", team:"Ghana", detail:"Goal"},{minute:"78'", player:"Félix", team:"Portugal", detail:"Goal"},{minute:"80'", player:"Leão", team:"Portugal", detail:"Goal"},{minute:"89'", player:"Bukari", team:"Ghana", detail:"Goal"}]},{home:"South Korea",score:"2-3",away:"Ghana"},{home:"Portugal",score:"2-0",away:"Uruguay"},{home:"Ghana",score:"0-2",away:"Uruguay"},{home:"South Korea",score:"2-1",away:"Portugal"}]
-  ],
-  knockout: {
-    leftR16:[
-      {home:"Netherlands",away:"USA",score:"3-1",goals:[{minute:"10'",player:"Depay",team:"Netherlands",detail:"Goal"},{minute:"45+1'",player:"Blind",team:"Netherlands",detail:"Goal"},{minute:"76'",player:"Wright",team:"USA",detail:"Goal"},{minute:"81'",player:"Dumfries",team:"Netherlands",detail:"Goal"}]},
-      {home:"Argentina",away:"Australia",score:"2-1",goals:[{minute:"35'",player:"Messi",team:"Argentina",detail:"Goal"},{minute:"57'",player:"Álvarez",team:"Argentina",detail:"Goal"},{minute:"77'",player:"Fernández",team:"Australia",detail:"Own Goal"}]},
-      {home:"Japan",away:"Croatia",score:"1-1",penHome:1,penAway:3,goals:[{minute:"43'",player:"Maeda",team:"Japan",detail:"Goal"},{minute:"55'",player:"Perišić",team:"Croatia",detail:"Goal"}]},
-      {home:"Brazil",away:"South Korea",score:"4-1",goals:[{minute:"7'",player:"Vinícius Júnior",team:"Brazil",detail:"Goal"},{minute:"13'",player:"Neymar",team:"Brazil",detail:"Penalty"},{minute:"29'",player:"Richarlison",team:"Brazil",detail:"Goal"},{minute:"36'",player:"Paquetá",team:"Brazil",detail:"Goal"},{minute:"76'",player:"Paik Seung-ho",team:"South Korea",detail:"Goal"}]}
-    ],
-    rightR16:[
-      {home:"England",away:"Senegal",score:"3-0",goals:[{minute:"38'",player:"Henderson",team:"England",detail:"Goal"},{minute:"45+3'",player:"Kane",team:"England",detail:"Goal"},{minute:"57'",player:"Saka",team:"England",detail:"Goal"}]},
-      {home:"France",away:"Poland",score:"3-1",goals:[{minute:"44'",player:"Giroud",team:"France",detail:"Goal"},{minute:"74'",player:"Mbappé",team:"France",detail:"Goal"},{minute:"90+1'",player:"Mbappé",team:"France",detail:"Goal"},{minute:"90+9'",player:"Lewandowski",team:"Poland",detail:"Penalty"}]},
-      {home:"Morocco",away:"Spain",score:"0-0",penHome:3,penAway:0,goals:[]},
-      {home:"Portugal",away:"Switzerland",score:"6-1",goals:[{minute:"17'",player:"Ramos",team:"Portugal",detail:"Goal"},{minute:"33'",player:"Pepe",team:"Portugal",detail:"Goal"},{minute:"51'",player:"Akanji",team:"Switzerland",detail:"Goal"},{minute:"55'",player:"Ramos",team:"Portugal",detail:"Goal"},{minute:"67'",player:"Guerreiro",team:"Portugal",detail:"Goal"},{minute:"74'",player:"Ramos",team:"Portugal",detail:"Goal"},{minute:"90+2'",player:"Leão",team:"Portugal",detail:"Goal"}]}
-    ],
-    leftQF:[
-      {home:"Netherlands",away:"Argentina",score:"2-2",penHome:3,penAway:4,goals:[{minute:"35'",player:"Molina",team:"Argentina",detail:"Goal"},{minute:"73'",player:"Messi",team:"Argentina",detail:"Penalty"},{minute:"83'",player:"Weghorst",team:"Netherlands",detail:"Goal"},{minute:"90+11'",player:"Weghorst",team:"Netherlands",detail:"Goal"}]},
-      {home:"Croatia",away:"Brazil",score:"1-1",penHome:4,penAway:2,goals:[{minute:"105+1'",player:"Neymar",team:"Brazil",detail:"Goal"},{minute:"117'",player:"Petković",team:"Croatia",detail:"Goal"}]}
-    ],
-    rightQF:[
-      {home:"England",away:"France",score:"1-2",goals:[{minute:"17'",player:"Tchouaméni",team:"France",detail:"Goal"},{minute:"54'",player:"Kane",team:"England",detail:"Penalty"},{minute:"78'",player:"Giroud",team:"France",detail:"Goal"}]},
-      {home:"Morocco",away:"Portugal",score:"1-0",goals:[{minute:"42'",player:"En-Nesyri",team:"Morocco",detail:"Goal"}]}
-    ],
-    leftSF:[
-      {home:"Argentina",away:"Croatia",score:"3-0",goals:[{minute:"34'",player:"Messi",team:"Argentina",detail:"Penalty"},{minute:"39'",player:"Álvarez",team:"Argentina",detail:"Goal"},{minute:"69'",player:"Álvarez",team:"Argentina",detail:"Goal"}]}
-    ],
-    rightSF:[
-      {home:"France",away:"Morocco",score:"2-0",goals:[{minute:"5'",player:"Theo Hernández",team:"France",detail:"Goal"},{minute:"79'",player:"Kolo Muani",team:"France",detail:"Goal"}]}
-    ],
-    final:{home:"Argentina",away:"France",score:"3-3",penHome:4,penAway:2,goals:[{minute:"23'",player:"Messi",team:"Argentina",detail:"Penalty"},{minute:"36'",player:"Di María",team:"Argentina",detail:"Goal"},{minute:"80'",player:"Mbappé",team:"France",detail:"Penalty"},{minute:"81'",player:"Mbappé",team:"France",detail:"Goal"},{minute:"108'",player:"Messi",team:"Argentina",detail:"Goal"},{minute:"118'",player:"Mbappé",team:"France",detail:"Penalty"}]},
-    winner:"Argentina",
-    finalDate:"Sunday · 18 Dec · 16H"
-  }
-};
 
+  groupMatches: [
+    [
+      {home:"Mexico", score:"2-0", away:"South Africa"},
+      {home:"South Korea", score:"2-1", away:"Czechia"},
+      {home:"Czechia", score:"TBC", away:"South Africa"},
+      {home:"Mexico", score:"TBC", away:"South Korea"},
+      {home:"Czechia", score:"TBC", away:"Mexico"},
+      {home:"South Africa", score:"TBC", away:"South Korea"}
+    ],
+    [
+      {home:"Canada", score:"1-1", away:"Bosnia and Herzegovina"},
+      {home:"Qatar", score:"TBC", away:"Switzerland"},
+      {home:"Switzerland", score:"TBC", away:"Bosnia and Herzegovina"},
+      {home:"Canada", score:"TBC", away:"Qatar"},
+      {home:"Switzerland", score:"TBC", away:"Canada"},
+      {home:"Bosnia and Herzegovina", score:"TBC", away:"Qatar"}
+    ],
+    [
+      {home:"Brazil", score:"TBC", away:"Morocco"},
+      {home:"Haiti", score:"TBC", away:"Scotland"},
+      {home:"Scotland", score:"TBC", away:"Morocco"},
+      {home:"Brazil", score:"TBC", away:"Haiti"},
+      {home:"Scotland", score:"TBC", away:"Brazil"},
+      {home:"Morocco", score:"TBC", away:"Haiti"}
+    ],
+    [
+      {home:"United States", score:"4-1", away:"Paraguay"},
+      {home:"Australia", score:"TBC", away:"Turkey"},
+      {home:"United States", score:"TBC", away:"Australia"},
+      {home:"Turkey", score:"TBC", away:"Paraguay"},
+      {home:"Turkey", score:"TBC", away:"United States"},
+      {home:"Paraguay", score:"TBC", away:"Australia"}
+    ],
+    [
+      {home:"Germany", score:"TBC", away:"Curacao"},
+      {home:"Ivory Coast", score:"TBC", away:"Ecuador"},
+      {home:"Germany", score:"TBC", away:"Ivory Coast"},
+      {home:"Ecuador", score:"TBC", away:"Curacao"},
+      {home:"Ecuador", score:"TBC", away:"Germany"},
+      {home:"Curacao", score:"TBC", away:"Ivory Coast"}
+    ],
+    [
+      {home:"Netherlands", score:"TBC", away:"Japan"},
+      {home:"Sweden", score:"TBC", away:"Tunisia"},
+      {home:"Netherlands", score:"TBC", away:"Sweden"},
+      {home:"Tunisia", score:"TBC", away:"Japan"},
+      {home:"Tunisia", score:"TBC", away:"Netherlands"},
+      {home:"Japan", score:"TBC", away:"Sweden"}
+    ],
+    [
+      {home:"Belgium", score:"TBC", away:"Egypt"},
+      {home:"Iran", score:"TBC", away:"New Zealand"},
+      {home:"Belgium", score:"TBC", away:"Iran"},
+      {home:"New Zealand", score:"TBC", away:"Egypt"},
+      {home:"New Zealand", score:"TBC", away:"Belgium"},
+      {home:"Egypt", score:"TBC", away:"Iran"}
+    ],
+    [
+      {home:"Spain", score:"TBC", away:"Cape Verde"},
+      {home:"Saudi Arabia", score:"TBC", away:"Uruguay"},
+      {home:"Spain", score:"TBC", away:"Saudi Arabia"},
+      {home:"Uruguay", score:"TBC", away:"Cape Verde"},
+      {home:"Uruguay", score:"TBC", away:"Spain"},
+      {home:"Cape Verde", score:"TBC", away:"Saudi Arabia"}
+    ],
+    [
+      {home:"France", score:"TBC", away:"Senegal"},
+      {home:"Iraq", score:"TBC", away:"Norway"},
+      {home:"France", score:"TBC", away:"Iraq"},
+      {home:"Norway", score:"TBC", away:"Senegal"},
+      {home:"Norway", score:"TBC", away:"France"},
+      {home:"Senegal", score:"TBC", away:"Iraq"}
+    ],
+    [
+      {home:"Argentina", score:"TBC", away:"Algeria"},
+      {home:"Austria", score:"TBC", away:"Jordan"},
+      {home:"Argentina", score:"TBC", away:"Austria"},
+      {home:"Jordan", score:"TBC", away:"Algeria"},
+      {home:"Jordan", score:"TBC", away:"Argentina"},
+      {home:"Algeria", score:"TBC", away:"Austria"}
+    ],
+    [
+      {home:"Portugal", score:"TBC", away:"DR Congo"},
+      {home:"Uzbekistan", score:"TBC", away:"Colombia"},
+      {home:"Portugal", score:"TBC", away:"Uzbekistan"},
+      {home:"Colombia", score:"TBC", away:"DR Congo"},
+      {home:"Colombia", score:"TBC", away:"Portugal"},
+      {home:"DR Congo", score:"TBC", away:"Uzbekistan"}
+    ],
+    [
+      {home:"England", score:"TBC", away:"Croatia"},
+      {home:"Ghana", score:"TBC", away:"Panama"},
+      {home:"England", score:"TBC", away:"Ghana"},
+      {home:"Panama", score:"TBC", away:"Croatia"},
+      {home:"Panama", score:"TBC", away:"England"},
+      {home:"Croatia", score:"TBC", away:"Ghana"}
+    ]
+  ],
+
+  knockout: {
+    leftR16: [
+      {home:"TBC", away:"TBC", score:"TBC"},
+      {home:"TBC", away:"TBC", score:"TBC"},
+      {home:"TBC", away:"TBC", score:"TBC"},
+      {home:"TBC", away:"TBC", score:"TBC"}
+    ],
+    rightR16: [
+      {home:"TBC", away:"TBC", score:"TBC"},
+      {home:"TBC", away:"TBC", score:"TBC"},
+      {home:"TBC", away:"TBC", score:"TBC"},
+      {home:"TBC", away:"TBC", score:"TBC"}
+    ],
+    leftQF: [
+      {home:"TBC", away:"TBC", score:"TBC"},
+      {home:"TBC", away:"TBC", score:"TBC"}
+    ],
+    rightQF: [
+      {home:"TBC", away:"TBC", score:"TBC"},
+      {home:"TBC", away:"TBC", score:"TBC"}
+    ],
+    leftSF: [
+      {home:"TBC", away:"TBC", score:"TBC"}
+    ],
+    rightSF: [
+      {home:"TBC", away:"TBC", score:"TBC"}
+    ],
+    final: {home:"TBC", away:"TBC", score:"TBC"}
+  },
+
+  winner: "TBC"
+};
 let currentData = demo;
 let refreshTimer = null;
 let activeApiKey = '';
@@ -1120,7 +1248,7 @@ function render(data, live=false){
   currentData = data;
   document.getElementById("mode").textContent = live ? "Live API Mode" : "Demo Mode";
   document.getElementById("leagueText").textContent = document.getElementById("leagueId").value || "1";
-  document.getElementById("seasonText").textContent = document.getElementById("season").value || "2022";
+  document.getElementById("seasonText").textContent = document.getElementById("season").value || "2026";
 
   document.getElementById("groups").innerHTML = data.groups.map((g,idx)=>`
     <div class="group-card" onclick="openGroup(${idx})">
@@ -1267,7 +1395,7 @@ async function loadLive(manual=true){
   const key = document.getElementById("apiKey").value.trim();
   activeApiKey = key;
   const league = document.getElementById("leagueId").value.trim() || "1";
-  const season = document.getElementById("season").value.trim() || "2022";
+  const season = document.getElementById("season").value.trim() || "2026";
   if(!key){ if(manual) alert("Paste your API key first."); return; }
 
   try{
